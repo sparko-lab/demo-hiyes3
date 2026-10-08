@@ -42,7 +42,7 @@ export function Header({ onOpenBooking }: HeaderProps) {
     >
       {/* 居中/靠左 動態過渡 Logo 群組 */}
       <div
-        className={`absolute flex items-center gap-3 md:gap-4 origin-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[left,transform] ${
+        className={`absolute flex items-center gap-3 md:gap-4 origin-left transition-all duration-1300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[left,transform] ${
           isScrolled
             ? "left-6 md:left-12 translate-x-0 scale-[0.78] md:scale-[0.72]"
             : "left-1/2 -translate-x-1/2 scale-100"
