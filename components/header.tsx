@@ -36,7 +36,7 @@ export function Header({ onOpenBooking }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isScrolled
-          ? "h-16 md:h-20 bg-[#F7F6F2]/95 backdrop-blur-md border-b-[0.5px] border-[#E5E3DC]"
+          ? "h-16 md:h-20 bg-[#FFF]/95 backdrop-blur-md border-b-[0.5px] border-[#E5E3DC]"
           : "h-24 md:h-32 bg-transparent border-b border-transparent"
       }`}
     >

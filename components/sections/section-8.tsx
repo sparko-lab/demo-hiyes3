@@ -16,7 +16,7 @@ export function Section8() {
           <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg flex justify-center">
             <Image
               src="/images/section-8.png"
-              alt="LIFE IN FLOW 光、風、自然 與人的日常，自在流動"
+              alt="FORM FOLLOWS FUNCTION. FORM FOLLOWS FICTION. 而今天 讓建築追隨生活的想像"
               width={1316}
               height={1195}
               priority
@@ -31,22 +31,22 @@ export function Section8() {
         <div className="text-center w-full max-w-2xl mt-6 sm:mt-8 md:mt-10">
           {/* 1. 英文小標 */}
           <ScrollReveal delay={200} direction="up">
-            <h3 className="font-sans font-medium text-xs sm:text-sm md:text-base tracking-[0.25em] md:tracking-[0.3em] uppercase text-[#737067] mb-2 sm:mb-3">
-              LIFE IN FLOW
+            <h3 className="font-sans text-[11px] sm:text-xs tracking-[0.2em] md:tracking-[0.26em] uppercase text-[#737067] mb-3 sm:mb-4">
+              FORM FOLLOWS FUNCTION / FORM FOLLOWS FICTION
             </h3>
           </ScrollReveal>
 
           {/* 2. 中文主標第一行 */}
           <ScrollReveal delay={300} direction="up">
-            <p className="text-[#1A1A1A] font-light text-base sm:text-lg md:text-xl tracking-[0.28em] md:tracking-[0.38em]">
-              光、風、自 然
+            <p className="text-[#1A1A1A] font-light text-base sm:text-lg md:text-xl tracking-[0.28em] md:tracking-[0.38em] mb-2 leading-relaxed">
+              而 今 天
             </p>
           </ScrollReveal>
 
           {/* 3. 中文主標第二行 */}
           <ScrollReveal delay={400} direction="up">
-            <p className="text-[#1A1A1A] font-light text-base sm:text-lg md:text-xl tracking-[0.28em] md:tracking-[0.38em]">
-              與 人 的 日 常，自 在 流 動
+            <p className="text-[#1A1A1A] font-light text-base sm:text-lg md:text-xl tracking-[0.28em] md:tracking-[0.38em] leading-relaxed">
+              讓 建 築 追 隨 生 活 的 想 像
             </p>
           </ScrollReveal>
         </div>
