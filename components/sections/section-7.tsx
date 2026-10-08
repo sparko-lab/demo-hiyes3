@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export function Section7() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-  const baseRef = useRef<HTMLDivElement>(null);
   const p1Ref = useRef<HTMLDivElement>(null); // hand
   const p2Ref = useRef<HTMLDivElement>(null); // base architectural structure + pine
   const p3Ref = useRef<HTMLDivElement>(null); // ramp left
@@ -34,7 +33,7 @@ export function Section7() {
         },
       });
 
-      // Dispersed / Scattered Initial States
+      // 1. 各碎片散落在外面的初始狀態
       gsap.set(p1Ref.current, { x: -80, y: 150, rotation: -9, scale: 0.86, opacity: 0.3 });
       gsap.set(p2Ref.current, { x: -130, y: 120, rotation: -4, scale: 0.92, opacity: 0.25 });
       gsap.set(p3Ref.current, { x: -170, y: -60, rotation: -7, scale: 0.88, opacity: 0.25 });
@@ -43,11 +42,18 @@ export function Section7() {
       gsap.set(p6Ref.current, { x: 150, y: 130, rotation: 9, scale: 0.88, opacity: 0.25 });
       gsap.set(p7Ref.current, { x: -40, y: -150, rotation: -8, scale: 0.86, opacity: 0.25 });
       gsap.set(p8Ref.current, { x: 140, y: -40, rotation: 6, scale: 0.9, opacity: 0.3 });
-      gsap.set(sigRef.current, { x: 70, y: 70, rotation: 4, scale: 0.9, opacity: 0 });
-      gsap.set(baseRef.current, { opacity: 0 });
+
+      // 2. 伊東豊雄簽名初始狀態：隱藏在定位點下方（y: 28），準備等其他碎片到齊後最後浮上來
+      gsap.set(sigRef.current, {
+        x: 0,
+        y: 0,
+        scale: 0.95,
+        opacity: 0,
+      });
+
       gsap.set(textRef.current, { opacity: 0.3, y: 30 });
 
-      // Convergence Animation (Scattered -> Gathered)
+      // 3. 碎片聚合動畫（Scattered -> Gathered 先跑完）
       tl.to(
         [
           p1Ref.current,
@@ -66,6 +72,7 @@ export function Section7() {
           scale: 1,
           opacity: 1,
           ease: "power2.out",
+          duration: 0.7,
           stagger: {
             each: 0.03,
             from: "random",
@@ -73,37 +80,28 @@ export function Section7() {
         },
         0
       )
-        // Signature gracefully appears as the drawing hand settles
+        // 4. 最後浮上來：等所有碎片都已歸位後，簽名才從下方優雅浮現升起
         .to(
           sigRef.current,
           {
-            x: 0,
             y: 0,
-            rotation: 0,
             scale: 1,
             opacity: 1,
-            ease: "power2.out",
+            duration: 0.3,
+            ease: "power3.out",
           },
-          0.4
+          0.72 // 確保所有碎片就定位後才浮現
         )
-        // The master assembled base fades in smoothly to lock all edges together seamlessly
-        .to(
-          baseRef.current,
-          {
-            opacity: 1,
-            ease: "power1.inOut",
-          },
-          0.65
-        )
-        // Bottom poetry fades in with subtle rise
+        // 5. 下方詩意文案升起淡入
         .to(
           textRef.current,
           {
             opacity: 1,
             y: 0,
+            duration: 0.45,
             ease: "power2.out",
           },
-          0.7
+          0.85
         );
     }, sectionRef);
 
@@ -133,7 +131,7 @@ export function Section7() {
         {/* 1. 底層大結構與黑松 (7-TOYO-ITO-02-2.png) */}
         <div
           ref={p2Ref}
-          className="absolute z-10 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-10 pointer-events-none will-change-transform"
           style={{
             left: "1.5%",
             top: "-2.2%",
@@ -153,7 +151,7 @@ export function Section7() {
         {/* 2. 左上方弧形迴廊 (7-TOYO-ITO-04.png) */}
         <div
           ref={p3Ref}
-          className="absolute z-12 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-12 pointer-events-none will-change-transform"
           style={{
             left: "12.0%",
             top: "14.4%",
@@ -172,7 +170,7 @@ export function Section7() {
         {/* 3. 右側曲面建築與綠樹 (7-TOYO-ITO-03.png) */}
         <div
           ref={p4Ref}
-          className="absolute z-14 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-14 pointer-events-none will-change-transform"
           style={{
             left: "62.5%",
             top: "30.1%",
@@ -191,7 +189,7 @@ export function Section7() {
         {/* 4. 右上方建築透視線條 (7-TOYO-ITO-06.png) */}
         <div
           ref={p5Ref}
-          className="absolute z-16 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-16 pointer-events-none will-change-transform"
           style={{
             left: "71.9%",
             top: "15.1%",
@@ -210,7 +208,7 @@ export function Section7() {
         {/* 5. 頂部黑松枝葉 (7-TOYO-ITO-08.png) */}
         <div
           ref={p7Ref}
-          className="absolute z-18 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-18 pointer-events-none will-change-transform"
           style={{
             left: "45.1%",
             top: "4.7%",
@@ -229,7 +227,7 @@ export function Section7() {
         {/* 6. 伊東豊雄肖像 (7-TOYO-ITO-09.png) */}
         <div
           ref={p8Ref}
-          className="absolute z-20 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-20 pointer-events-none will-change-transform"
           style={{
             left: "51.7%",
             top: "19.9%",
@@ -249,7 +247,7 @@ export function Section7() {
         {/* 7. 右下方弧形引道 (7-TOYO-ITO-07.png) */}
         <div
           ref={p6Ref}
-          className="absolute z-22 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-22 pointer-events-none will-change-transform"
           style={{
             left: "67.7%",
             top: "53.4%",
@@ -268,7 +266,7 @@ export function Section7() {
         {/* 8. 手繪手稿之手 (7-TOYO-ITO-01.png) */}
         <div
           ref={p1Ref}
-          className="absolute z-24 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-24 pointer-events-none will-change-transform"
           style={{
             left: "50.4%",
             top: "61.5%",
@@ -284,10 +282,10 @@ export function Section7() {
           />
         </div>
 
-        {/* 9. 伊東豊雄簽名 (toyo-signature.png) */}
+        {/* 10. 伊東豊雄簽名 (toyo-signature.png) */}
         <div
           ref={sigRef}
-          className="absolute z-26 pointer-events-none transition-transform will-change-transform"
+          className="absolute z-35 pointer-events-none will-change-[transform,opacity]"
           style={{
             left: "59.0%",
             top: "82.0%",
@@ -302,8 +300,6 @@ export function Section7() {
             className="object-contain"
           />
         </div>
-
-        
       </div>
 
       {/* 下方詩意文案 */}
