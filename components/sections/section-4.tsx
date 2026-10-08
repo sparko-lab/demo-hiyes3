@@ -10,7 +10,7 @@ export function Section4() {
       {/* ======================================================== */}
       {/* 核心文字：全尺寸置中對齊，舒適的頂部留白                       */}
       {/* ======================================================== */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-20 sm:pt-24 md:pt-28 text-center w-full">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24 sm:pt-28 md:pt-28 text-center w-full">
         {/* 英文小標 */}
         <ScrollReveal delay={100} direction="up">
           <h3 className="font-medium text-xs sm:text-sm md:text-base tracking-[0.25em] md:tracking-[0.3em] uppercase text-[#1A1B1D]/80 mb-4 md:mb-5">
@@ -34,10 +34,10 @@ export function Section4() {
       </div>
 
       {/* ======================================================== */}
-      {/* 背景圖片：自適應自然高度，不再強行撐滿全螢幕                   */}
+      {/* 背景圖片：手機版高度提升 (h-[450px])，景深更為開闊開朗        */}
       {/* ======================================================== */}
-      <div className="relative w-full flex justify-center pointer-events-none overflow-hidden mt-6 sm:mt-8 md:mt-10">
-        <div className="relative w-full max-w-[1400px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[580px]">
+      <div className="relative w-full flex justify-center pointer-events-none overflow-hidden mt-8 sm:mt-10 md:mt-10">
+        <div className="relative w-full max-w-[1400px] h-[450px] sm:h-[500px] md:h-[500px] lg:h-[580px]">
           <Image
             src="/images/section-4.jpeg"
             alt="在水湳 繁華與從容 不必選擇"
@@ -47,7 +47,7 @@ export function Section4() {
           />
 
           {/* 頂部淡化漸層：自然消融於 #EEEAE7 底色 */}
-          <div className="absolute inset-x-0 top-0 h-24 sm:h-32 md:h-40 bg-gradient-to-b from-[#EEEAE7] to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-32 sm:h-36 md:h-40 bg-gradient-to-b from-[#EEEAE7] to-transparent" />
 
           {/* 超寬螢幕兩側羽化漸層：無縫消融於底色 */}
           <div className="hidden md:block absolute inset-y-0 left-0 w-24 lg:w-40 bg-gradient-to-r from-[#EEEAE7] to-transparent" />
