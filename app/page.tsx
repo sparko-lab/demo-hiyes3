@@ -1,45 +1,27 @@
+"use client";
+
+import React, { useState } from "react";
 import { Header } from "@/components/header";
-import { Card, CardContent } from "@/components/ui/card";
+import { Section4 } from "@/components/sections/section-4";
+import { Section7 } from "@/components/sections/section-7";
+import { BookingModal } from "@/components/booking-modal";
 
 export default function Home() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-800">
-      <Header />
+    <main className="min-h-screen bg-[#EEEAE7] text-[#1A1B1D]">
+      {/* 頂部動態過渡 Header：富邦建設 ｜ 長慶建設 */}
+      <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
-      {/* 頁面內容區塊 */}
-      <div className="pt-32 md:pt-40 max-w-5xl mx-auto px-5">
-        <section className="min-h-[380px] flex flex-col justify-center items-center text-center py-16">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            歡迎造訪富邦建設
-          </h1>
-          <p className="text-base md:text-lg text-slate-600 max-w-xl">
-            向下滾動查看 Header 動畫縮放與靠左吸附效果
-          </p>
-        </section>
+      {/* Section 4 */}
+      <Section4 />
 
-        <section className="grid gap-6 pb-96">
-          <Card className="h-52 flex items-center justify-center shadow-xs border-slate-200">
-            <CardContent className="p-0 text-slate-700 font-medium text-lg">
-              區塊內容 1
-            </CardContent>
-          </Card>
-          <Card className="h-52 flex items-center justify-center shadow-xs border-slate-200">
-            <CardContent className="p-0 text-slate-700 font-medium text-lg">
-              區塊內容 2
-            </CardContent>
-          </Card>
-          <Card className="h-52 flex items-center justify-center shadow-xs border-slate-200">
-            <CardContent className="p-0 text-slate-700 font-medium text-lg">
-              區塊內容 3
-            </CardContent>
-          </Card>
-          <Card className="h-52 flex items-center justify-center shadow-xs border-slate-200">
-            <CardContent className="p-0 text-slate-700 font-medium text-lg">
-              區塊內容 4
-            </CardContent>
-          </Card>
-        </section>
-      </div>
+      {/* Section 7: 伊東豊雄 Toyo Ito 拼貼聚集動畫 */}
+      <Section7 />
+
+      {/* 彈出式預約專屬鑑賞 Modal */}
+      <BookingModal open={isBookingOpen} onOpenChange={setIsBookingOpen} />
     </main>
   );
 }
