@@ -305,7 +305,7 @@ export function Section7() {
       {/* 下方詩意文案 */}
       <div
         ref={textRef}
-        className="text-center mt-14 sm:mt-20 md:mt-24 space-y-3 px-6 select-none will-change-transform"
+        className="text-center mt-8 sm:mt-16 md:mt-16 space-y-3 px-6 select-none will-change-transform"
       >
         <p className="text-[#1A1A1A] font-light text-base sm:text-lg md:text-xl tracking-[0.28em] md:tracking-[0.38em]">
           建築，是讓光、風、自然與人
