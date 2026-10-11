@@ -3,8 +3,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "富邦建設 50 領銜鉅獻 ╳ 伊東豊雄 | 水湳中央公園首排",
-  description: "富邦50週年領銜鉅獻，普立茲克建築大師伊東豊雄親自操刀，入主水湳中央公園67公頃綠浪首席。專屬私密鑑賞通道。",
+  title: "富邦建設 ✕ 長慶建設",
+  description: "在公園第一排，遇見下一種生活，誠摯邀請您蒞臨，VVIP私享鑑賞",
+  openGraph: {
+    title: "富邦建設 ✕ 長慶建設",
+    description: "在公園第一排，遇見下一種生活，誠摯邀請您蒞臨，VVIP私享鑑賞",
+    url: "/",
+    siteName: "富邦建設 ✕ 長慶建設",
+    images: [
+      {
+        url: "/funbon-land.png",
+        width: 1200,
+        height: 630,
+        alt: "富邦建設 ✕ 長慶建設",
+      },
+    ],
+    locale: "zh_TW",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
